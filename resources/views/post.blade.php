@@ -6,6 +6,7 @@
     <title>post</title>
 </head>
 <body>
+    <h1>First Post</h1>
     <p>{{ $post->body }}</p>
 </body>
 </html>
