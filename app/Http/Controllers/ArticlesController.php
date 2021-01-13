@@ -63,6 +63,12 @@ class ArticlesController extends Controller
     {
         // Persist the edited resource
 
+        request()->validate([
+            'title' => ['required', 'max:255'],
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+        
         $article = Article::find($id);
 
         $article->title = request('title');
