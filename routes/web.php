@@ -29,6 +29,7 @@ Route::post('/blogs', 'App\Http\Controllers\ArticlesController@store');
 Route::get('/blogs/create', 'App\Http\Controllers\ArticlesController@create');
 Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show');
 Route::get('/blogs/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
+Route::put('/blogs/{article}/', 'App\Http\Controllers\ArticlesController@update');
 
 Route::get('/projects', function (){
     return view('projects'); 
