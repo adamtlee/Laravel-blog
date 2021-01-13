@@ -23,7 +23,10 @@ Route::get('/about', function (){
 });
 
 Route::get('/blogs', function (){
-    return view('blogs'); 
+    return view('blogs', [
+        // 'articles' => App\Models\Article::take(3)->latest()->get()
+        'articles' => App\Models\Article::latest()->get()
+    ]);
 });
 
 Route::get('/projects', function (){
