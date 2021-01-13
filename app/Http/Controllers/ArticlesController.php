@@ -34,6 +34,12 @@ class ArticlesController extends Controller
         // Persist the new resource
         // dump(request()->all());
 
+        request()->validate([
+            'title' => ['required', 'max:255'],
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
         $article = new Article();
 
         $article->title = request('title');
