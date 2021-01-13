@@ -24,13 +24,11 @@ Route::get('/about', function (){
     return view('about'); 
 });
 
-Route::get('/blogs', function (){
-    return view('blogs', [
-        // 'articles' => App\Models\Article::take(3)->latest()->get()
-        'articles' => App\Models\Article::latest()->get()
-    ]);
-});
+Route::get('/blogs', 'App\Http\Controllers\ArticlesController@index');
+Route::post('/blogs', 'App\Http\Controllers\ArticlesController@store');
+Route::get('/blogs/create', 'App\Http\Controllers\ArticlesController@create');
 Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/blogs/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
 
 Route::get('/projects', function (){
     return view('projects'); 
@@ -41,6 +39,13 @@ Route::get('/projects', function (){
 // });
 
 // Route::get('/posts/{post}' , [PostsController::class,'show']);
+
+// Route::get('/blogs', function (){
+//     return view('blogs', [
+//         // 'articles' => App\Models\Article::take(3)->latest()->get()
+//         'articles' => App\Models\Article::latest()->get()
+//     ]);
+// });
 
 
 

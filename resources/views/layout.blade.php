@@ -25,7 +25,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="../">
-        <a href="#" class="navbar-item is-active is-size-5 has-text-weight-semibold">
+        <a href="/" class="navbar-item is-active is-size-5 has-text-weight-semibold">
           Adam Lee Studio.
         </a>
           <!--<img src="../images/bulma.png" alt="Logo">-->
@@ -64,6 +64,8 @@
       </div>
     </div>
   </nav>
+
+  @yield('head')
   <!-- END NAV -->
 
   @yield('content')
