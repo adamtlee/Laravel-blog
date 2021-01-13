@@ -15,7 +15,9 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'articles' => App\Models\Article::take(4)->latest()->get()
+    ]);
 });
 
 Route::get('/about', function (){
@@ -28,16 +30,17 @@ Route::get('/blogs', function (){
         'articles' => App\Models\Article::latest()->get()
     ]);
 });
+Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show');
 
 Route::get('/projects', function (){
     return view('projects'); 
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
-Route::get('/posts/{post}' , [PostsController::class,'show']);
+// Route::get('/posts/{post}' , [PostsController::class,'show']);
 
 
 

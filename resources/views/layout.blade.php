@@ -35,15 +35,18 @@
           <span></span>
         </span>
       </div>
+      
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
           <div class=" navbar-item">
+          <!--
             <div class="control has-icons-left">
               <input class="input is-rounded" type="email" placeholder="Search">
               <span class="icon is-left">
                 <i class="fa fa-search"></i>
               </span>
             </div>
+            -->
           </div>
           <a href = "/" class="{{ Request::path() === '/' ? 'navbar-item is-active is-size-5 has-text-weight-semibold' : 'navbar-item is-size-5 has-text-weight-semibold'}}">
             Home
