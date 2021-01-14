@@ -24,10 +24,10 @@ Route::get('/about', function (){
     return view('about'); 
 });
 
-Route::get('/blogs', 'App\Http\Controllers\ArticlesController@index');
+Route::get('/blogs', 'App\Http\Controllers\ArticlesController@index')->name('articles.index');
 Route::post('/blogs', 'App\Http\Controllers\ArticlesController@store');
 Route::get('/blogs/create', 'App\Http\Controllers\ArticlesController@create');
-Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show')->name('articles.show');
 Route::get('/blogs/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
 Route::put('/blogs/{article}/', 'App\Http\Controllers\ArticlesController@update');
 

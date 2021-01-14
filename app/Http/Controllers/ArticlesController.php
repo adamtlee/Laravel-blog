@@ -27,7 +27,7 @@ class ArticlesController extends Controller
     {
         Article::create($this->validateArticle());
 
-        return redirect('/blogs');
+        return redirect(route('articles.index'));
     }
 
     public function edit(Article $article)
@@ -37,13 +37,9 @@ class ArticlesController extends Controller
 
     public function update(Article $article)
     {
-        $article->update(request()->validate([
-            'title' => ['required', 'max:255'],
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]));
+       $article->update($this->validateArticle());
 
-        return redirect('/blogs/' . $article->id);
+        return redirect(route('articles.show', $article));
     }
 
     protected function validateArticle()
