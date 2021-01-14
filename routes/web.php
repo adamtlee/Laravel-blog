@@ -27,7 +27,6 @@ Route::get('/about', function (){
 Route::get('/blogs', 'App\Http\Controllers\ArticlesController@index');
 Route::post('/blogs', 'App\Http\Controllers\ArticlesController@store');
 Route::get('/blogs/create', 'App\Http\Controllers\ArticlesController@create');
-// Ensure that the wildcard matches the parameter in the controllers show method!!!
 Route::get('/blogs/{article}', 'App\Http\Controllers\ArticlesController@show');
 Route::get('/blogs/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
 Route::put('/blogs/{article}/', 'App\Http\Controllers\ArticlesController@update');
@@ -35,19 +34,6 @@ Route::put('/blogs/{article}/', 'App\Http\Controllers\ArticlesController@update'
 Route::get('/projects', function (){
     return view('projects'); 
 });
-
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/posts/{post}' , [PostsController::class,'show']);
-
-// Route::get('/blogs', function (){
-//     return view('blogs', [
-//         // 'articles' => App\Models\Article::take(3)->latest()->get()
-//         'articles' => App\Models\Article::latest()->get()
-//     ]);
-// });
 
 
 

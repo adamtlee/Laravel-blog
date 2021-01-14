@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = ['title', 'excerpt', 'body'];
-    // use HasFactory;
-    // public function getRouteKeyName()
-    // {
-    //     // TODO: return slug column
-    // }
 }
