@@ -33,12 +33,6 @@ class ArticlesController extends Controller
         // Persist the new resource
         // dump(request()->all());
 
-        $validatedAttributes = request()->validate([
-            'title' => ['required', 'max:255'],
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]);
-
         // $article = new Article();
         // $article->title = request('title');
         // $article->excerpt = request('excerpt');
@@ -50,7 +44,7 @@ class ArticlesController extends Controller
         //     'body' => request('body')
         // ]);
 
-        Article::create($validatedAttributes);
+        Article::create($this->validateArticle());
 
         return redirect('/blogs');
     }
@@ -82,6 +76,16 @@ class ArticlesController extends Controller
         // $article->save();
 
         return redirect('/blogs/' . $article->id);
+    }
+
+    protected function validateArticle()
+    {
+        return request()->validate([
+            'title' => ['required', 'max:255'],
+            'excerpt' => 'required',
+            'body' => 'required'
+
+        ]);
     }
 
     public function destroy()
