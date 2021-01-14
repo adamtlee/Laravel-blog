@@ -33,19 +33,24 @@ class ArticlesController extends Controller
         // Persist the new resource
         // dump(request()->all());
 
-        request()->validate([
+        $validatedAttributes = request()->validate([
             'title' => ['required', 'max:255'],
             'excerpt' => 'required',
             'body' => 'required'
         ]);
 
-        $article = new Article();
+        // $article = new Article();
+        // $article->title = request('title');
+        // $article->excerpt = request('excerpt');
+        // $article->body = request('body');
+        // $article->save();
+        // Article::create([
+        //     'title' => request('title'),
+        //     'excerpt' => request('excerpt'),
+        //     'body' => request('body')
+        // ]);
 
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-
-        $article->save();
+        Article::create($validatedAttributes);
 
         return redirect('/blogs');
     }
@@ -62,19 +67,19 @@ class ArticlesController extends Controller
     {
         // Persist the edited resource
 
-        request()->validate([
+        $article->update(request()->validate([
             'title' => ['required', 'max:255'],
             'excerpt' => 'required',
             'body' => 'required'
-        ]);
+        ]));
         
         // $article = Article::find($id);
 
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
+        // $article->title = request('title');
+        // $article->excerpt = request('excerpt');
+        // $article->body = request('body');
 
-        $article->save();
+        // $article->save();
 
         return redirect('/blogs/' . $article->id);
     }
